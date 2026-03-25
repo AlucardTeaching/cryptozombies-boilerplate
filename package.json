@@ -13,7 +13,11 @@
     "deploy:local": "hardhat run scripts/deploy.ts --network localhost",
     "setup": "hardhat run scripts/setup.ts",
     "verify": "hardhat run scripts/verify.ts",
-    "interact": "hardhat run scripts/interact.ts",
+    "interact": "hardhat run scripts/interact.ts --network localhost",
+    "interact:create": "hardhat run scripts/interactions/createZombie.ts --network localhost",
+    "interact:get": "hardhat run scripts/interactions/getZombies.ts --network localhost",
+    "interact:levelup": "hardhat run scripts/interactions/levelUp.ts --network localhost",
+    "interact:changename": "hardhat run scripts/interactions/changeName.ts --network localhost",
     "clean": "hardhat clean",
     "typecheck": "tsc --noEmit"
   },

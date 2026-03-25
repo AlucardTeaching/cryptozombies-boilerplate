@@ -141,7 +141,11 @@ npm run deploy           # Deploy to Hardhat network
 npm run deploy:local     # Deploy to local node
 
 # Interaction
-npm run interact         # Interact with deployed contract
+npm run interact         # Interact with deployed contract (general)
+npm run interact:create  # Create a new zombie
+npm run interact:get     # View your zombies
+npm run interact:levelup # Level up a zombie
+npm run interact:changename # Change zombie name
 npm run setup            # Configure deployed contract
 npm run verify           # Verify on Etherscan
 ```
@@ -170,7 +174,13 @@ cryptozombies/
 │   ├── deploy.ts             # Main deployment script
 │   ├── setup.ts              # Post-deployment configuration
 │   ├── verify.ts             # Etherscan verification
-│   └── interact.ts           # Contract interaction examples
+│   ├── interact.ts           # Contract interaction examples
+│   └── interactions/         # Easy-to-use interaction scripts
+│       ├── createZombie.ts   # Create new zombie
+│       ├── getZombies.ts     # View all zombies
+│       ├── levelUp.ts        # Level up zombie
+│       ├── changeName.ts     # Change zombie name
+│       └── README.md         # Interaction scripts guide
 ├── hardhat.config.ts         # Hardhat configuration
 ├── tsconfig.json             # TypeScript configuration
 ├── package.json              # Project dependencies
@@ -358,6 +368,26 @@ CONTRACT_ADDRESS=0x... npm run verify -- --network sepolia
 
 ## 💻 Usage
 
+### Quick Interaction Scripts
+
+We provide easy-to-use interaction scripts for common operations. See the **[Interaction Scripts Guide](./scripts/interactions/README.md)** for detailed documentation.
+
+**Quick commands:**
+
+```bash
+# Create a zombie
+ZOMBIE_NAME="DragonZombie" npm run interact:create
+
+# View your zombies
+npm run interact:get
+
+# Level up a zombie (costs 0.001 ETH)
+ZOMBIE_ID=0 npm run interact:levelup
+
+# Change zombie name (requires level 2+)
+ZOMBIE_ID=0 ZOMBIE_NAME="MegaDragon" npm run interact:changename
+```
+
 ### Creating Your First Zombie
 
 ```javascript
@@ -375,7 +405,7 @@ console.log("Your zombies:", zombies);
 ### Interactive Examples
 
 ```bash
-# Use the interact script
+# Use the general interact script
 CONTRACT_ADDRESS=0x... npm run interact
 ```
 
@@ -400,6 +430,8 @@ await contract.attack(myZombieId, targetZombieId);
 // Transfer zombie
 await contract.transferFrom(from, to, zombieId);
 ```
+
+> 📖 **For more examples and detailed usage**, see the [Interaction Scripts Guide](./scripts/interactions/README.md)
 
 ---
 
