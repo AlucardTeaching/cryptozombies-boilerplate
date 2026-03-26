@@ -104,7 +104,7 @@ CryptoZombies is an educational Solidity project that teaches smart contract dev
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/AlucardTeaching/cryptozombies.git
+git clone https://github.com/AlucardTeaching/cryptozombies-boilerplate.git
 cd cryptozombies
 ```
 
